@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TodoItem from "./TodoItem";
 
 function Todo() {
   const [todo, setTodo] = useState("");
@@ -29,7 +30,10 @@ function Todo() {
         />
         <button>Add todo</button>
         {todos.map((item, index) => {
-          return <li key={index}>{item}</li>;
+          //   return <li key={index}>{item}</li>;
+          return (
+            <TodoItem key={index} text={item} index={index} name="김인섭" />
+          );
         })}
       </form>
     </div>
