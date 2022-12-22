@@ -14,7 +14,7 @@ function Todo() {
     event.preventDefault();
     console.log("onSubmit Click");
 
-    setTodos((currentTodos) => [todo, ...currentTodos]);
+    setTodos((currentTodos) => [...currentTodos, todo]);
     setTodo("");
 
     console.log(todos);
@@ -30,7 +30,8 @@ function Todo() {
         />
         <button>Add todo</button>
         {todos.map((item, index) => {
-          //   return <li key={index}>{item}</li>;
+          // return <li key={index}>{item}</li>;
+          // 역순으로 하는 것도 고민해보기
           return (
             <TodoItem key={index} text={item} index={index} name="김인섭" />
           );
