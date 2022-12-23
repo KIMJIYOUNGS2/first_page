@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import TodoItem from "./TodoItem";
-import moment from "moment"; // 시간 모듈
 
 function Todo() {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
-  const [time, setTime] = useState("");
 
   useEffect(() => {
-    setTime(moment().format("YYYY-MM-DD HH:mm:ss"));
-  }, [time]);
-
-  //   const time = moment().format("YYYY-MM-DD HH:mm:ss");
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data", data);
+        setTodos(data);
+      });
+  }, []);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -19,29 +20,22 @@ function Todo() {
 
     setTodos((currentTodos) => [...currentTodos, todo]);
     setTodo("");
-
-    console.log(todos);
   };
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
-        <button>Add todo</button>
-        {todos.map((item, index) => {
-          // return <li key={index}>{item}</li>;
-          // 역순으로 하는 것도 고민해보기
-          return (
-            <TodoItem
-              key={index}
-              text={item}
-              time={time}
-              index={index}
-              total={todos.length}
-              name="김인섭"
-            />
-          );
-        })}
-      </form>
+      <button>Add todo</button>
+      {todos.map((item) => {
+        console.log(item);
+        return (
+          <TodoItem
+            key={item.id}
+            id={item.id}
+            userId={item.userId}
+            title={item.title}
+          />
+        );
+      })}
     </div>
   );
 }
