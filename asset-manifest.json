@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/oz-front-test/static/css/main.3d575ca4.css",
+    "main.js": "/oz-front-test/static/js/main.d693f7fc.js",
+    "index.html": "/oz-front-test/index.html",
+    "main.3d575ca4.css.map": "/oz-front-test/static/css/main.3d575ca4.css.map",
+    "main.d693f7fc.js.map": "/oz-front-test/static/js/main.d693f7fc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3d575ca4.css",
+    "static/js/main.d693f7fc.js"
+  ]
+}
