@@ -20,7 +20,7 @@ const Home = () => {
       <Link to="/users" className="btn">
         go users page
       </Link>
-      <Link to="/movies" className="btn">
+      <Link to="/movie" className="btn">
         go movies page
       </Link>
     </div>
