@@ -5,6 +5,7 @@ import Todo from "./Todo";
 import Button from "./Button";
 import BookList from "./BookList";
 import Users from "./Users";
+import Movies from "./Movies";
 
 // 최상위 컴포넌트
 function App() {
@@ -15,9 +16,10 @@ function App() {
       {/* <Button text="첫 번째 버튼" work="" />
       <Button text="두 번째 버튼" work="" />
     <Button text="세 번째 버튼" work="true" /> */}
-      <Todo />
+      {/* <Todo /> */}
       {/* <BookList /> */}
       {/* <Users /> */}
+      <Movies />
     </div>
   );
 }
