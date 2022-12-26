@@ -14,6 +14,7 @@ const Movies = () => {
       .then((data) => {
         console.log("data");
         console.log(data);
+
         console.log("data.data.movies");
         console.log(data.data.movies);
 
@@ -21,13 +22,19 @@ const Movies = () => {
         setLoading(false);
       });
   }, []);
+
   return (
     <div>
       {loading ? <h1>영화 정보를 받아오는 중입니다.</h1> : null}
       {movies.map((item) => {
+        console.log("item");
+        console.log(item);
+        console.log(item.title);
+        console.log(item.year);
+
         return (
           <Movie
-            tile={item.title}
+            title={item.title}
             img={item.medium_cover_image}
             year={item.year}
           />
@@ -37,8 +44,15 @@ const Movies = () => {
   );
 };
 
-const Movie = () => {
-  return <title>"영화제목</title>;
+const Movie = ({ title, img, year }) => {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <img src={img}></img>
+      <h3>{year}</h3>
+      <a href="/#main"></a>
+    </div>
+  );
 };
 
 export default Movies;
