@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Movies = () => {
   const URL =
@@ -34,6 +35,8 @@ const Movies = () => {
 
         return (
           <Movie
+            key={item.key}
+            id={item.id}
             title={item.title}
             img={item.medium_cover_image}
             year={item.year}
@@ -44,13 +47,14 @@ const Movies = () => {
   );
 };
 
-const Movie = ({ title, img, year }) => {
+const Movie = ({ id, title, img, year }) => {
   return (
     <div>
-      <h1>{title}</h1>
+      <Link to={`/movie/detail/${id}`}>
+        <h1>{title}</h1>
+      </Link>
       <img src={img}></img>
       <h3>{year}</h3>
-      <a href="/#main"></a>
     </div>
   );
 };
